@@ -1,12 +1,12 @@
 FROM litespeedtech/openlitespeed:latest
 COPY install.sh /usr/local/bin/
 
-LABEL version="0.0.1"
+LABEL version="0.0.2"
 LABEL description="Redirect Domain with Litespeed"
 LABEL maintainer="Alan Mosko<falecom@alanmosko.com.br>"
 
-ENV OLD_DOMAIN="domain.com"
-ENV NEW_DOMAIN="newdomain.com"
+ENV VIRTUAL_HOST="domain.com"
+ENV REDIRECT_FOR="newdomain.com"
 
 RUN apt-get update -y
 RUN apt-get upgrade -y

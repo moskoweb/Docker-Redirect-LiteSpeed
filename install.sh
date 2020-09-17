@@ -4,9 +4,9 @@ cd /var/www/vhosts/localhost/html
 
 echo "<IfModule mod_rewrite.c>" >> .htaccess
 echo "  RewriteEngine On" >> .htaccess
-echo "  RewriteCond %{HTTP_HOST} ^$OLD_DOMAIN$ [OR]" >> .htaccess
-echo "  RewriteCond %{HTTP_HOST} ^www.$OLD_DOMAIN$" >> .htaccess
-echo "  RewriteRule (.*)$ http://$NEW_DOMAIN/$1 [R=301,L]" >> .htaccess
+echo "  RewriteCond %{HTTP_HOST} ^$VIRTUAL_HOST$ [OR]" >> .htaccess
+echo "  RewriteCond %{HTTP_HOST} ^www.$VIRTUAL_HOST$" >> .htaccess
+echo "  RewriteRule (.*)$ http://$REDIRECT_FOR/$1 [R=301,L]" >> .htaccess
 echo "</IfModule>" >> .htaccess
 
 chown -R lsadm:lsadm .*
